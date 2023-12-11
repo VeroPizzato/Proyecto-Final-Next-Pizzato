@@ -1,17 +1,22 @@
 import Image from "next/image"
 import Boton from "../ui/Boton"
-import { mockData } from "@/data/products"
+import Link from "next/link"
 import Eliminar from "@/public/icons/borrar.png"
 import Editar from "@/public/icons/editar.png"
 
+const ProductsTable = async () => {
 
-const ProductsTable = async () => {     
+    const items = await fetch(`http://localhost:3000/api/productos/all`, {
+        cache: 'no-store',
+    }).then(r => r.json())
 
     return (
         <>
-            <Boton className="flex justify-between items-center ml-auto font-mono text-lg my-4">
-                Crear nuevo
-            </Boton>
+            <Link href={"/admin/create"}>
+                <Boton className="flex justify-between font-mono text-lg my-4">
+                    Nuevo
+                </Boton>
+            </Link>
             <div className="overflow-x-auto">
                 <table className="w-full text-xs text-left text-gray-600 mb-6">
                     <thead className="text-sm text-gray-700 uppercase font-mono text-bold">
@@ -28,7 +33,7 @@ const ProductsTable = async () => {
                     </thead>
                     <tbody>
                         {
-                            mockData.map((item) => (
+                            items.map((item) => (
                                 <tr>
                                     <td className="font-mono p-2 text-justify">{item.title}</td>
                                     <td className="font-mono p-2">{item.price}</td>
@@ -46,19 +51,23 @@ const ProductsTable = async () => {
                                     <td className="font-mono p-2 text-justify">{item.description}</td>
                                     <td className="p-2">
                                         <div className="flex justify-center items-center gap-2">
-                                            <Image 
-                                                src={Editar}
-                                                alt="Icono editar"
-                                                width={30}
-                                                height={30}
-                                            />
-                                            <Image 
-                                                src={Eliminar}
-                                                alt="Icono eliminar"
-                                                width={30}
-                                                height={30}
-                                            />
-                                        </div>                                        
+                                            <Link href={`/admin/edit/${item.slug}`}>
+                                                <Image
+                                                    src={Editar}
+                                                    alt="Icono editar"
+                                                    width={30}
+                                                    height={30}
+                                                />
+                                            </Link>
+                                            <Link href={`/admin/delete/${item.slug}`}>
+                                                <Image
+                                                    src={Eliminar}
+                                                    alt="Icono eliminar"
+                                                    width={30}
+                                                    height={30}
+                                                />
+                                            </Link>
+                                        </div>
                                     </td>
                                 </tr>
                             ))

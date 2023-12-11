@@ -11,9 +11,9 @@ const ProductCard = ({ item }) => {
                 <Image
                     alt={item.title}
                     src={`/imgs/${item.image}`}
-                    width={288}
-                    height={288}
-                    style={{objectFit: "contain"}}
+                    width={400}
+                    height={400}
+                    style={{objectFit: "contain"}}                   
                 />
 
                 <div className="px-4 border-t border-gray-200">
