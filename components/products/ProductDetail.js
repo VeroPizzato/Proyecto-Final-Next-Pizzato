@@ -19,7 +19,7 @@ const ProductDetail = async ({ slug }) => {
             <section className="flex gap-6">
                 <div className="relative basis-1/2">
                     <Image
-                        src={`/imgs/${item.image}`}
+                        src={item.image}
                         alt={item.title}
                         width={860}
                         height={860}

@@ -44,7 +44,7 @@ const Cart = () => {
                                     <tr key={item.slug}>
                                         <td className="flex items-center justify-center">
                                             <Image 
-                                                src={`/imgs/${item.image}`}
+                                                src={item.image}
                                                 alt={item.title}
                                                 width={100}  
                                                 height={100}                                             
