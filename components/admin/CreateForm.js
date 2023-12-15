@@ -8,8 +8,7 @@ import { db, storage } from "@/firebase/config"
 const createProduct = async (values, file) => {
     const storageRef = ref(storage, values.slug)
     const fileSnapshot = await uploadBytes(storageRef, file)
-
-    const fileURL = await getDownloadURL( fileSnapshot.ref )
+    const fileURL = await getDownloadURL(fileSnapshot.ref)
 
     const docRef = doc(db, "productos", values.slug)
     values.price = parseInt(values.price)
