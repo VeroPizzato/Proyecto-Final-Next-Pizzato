@@ -6,7 +6,8 @@ const IrAtras = ({children, ...args}) => {
     const router = useRouter()
 
     return (
-        <Boton onClick={() => router.back()} {...args}>
+        <Boton onClick={() => {router.back()
+                               router.refresh()}} {...args}>
             {children}
         </Boton>
     )

@@ -10,8 +10,9 @@ const Cart = () => {
                 </div>
             </div>
 
-            <CartList/>          
-
+            <CartList/>  
+            <ClientForm />
+            
         </div>
     )  
 }
