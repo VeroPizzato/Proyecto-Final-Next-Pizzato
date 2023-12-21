@@ -49,15 +49,15 @@ const EditForm = ({item}) => {
             [e.target.name]: e.target.value
         })
     }
-
+ 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault()        
         await updateProduct(item.slug, values, file)
         setVolver(true)
     }
-    
+       
     return (
-        <main className="container m-auto w-1/3">
+        <main className="container m-auto w-1/2">
             <h1 className="text-4xl text-red-900 my-4 text-center font-mono">Edicion Producto</h1>
             <hr />
             <form onSubmit={handleSubmit} className="bg-gray-100 px-8 pt-6 pb-8 mb-4 rounded-xl shadow-lg">                
@@ -72,7 +72,7 @@ const EditForm = ({item}) => {
 
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Imagen </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 file:font-mono file:mr-6" type="file" placeholder="Ingrese imagen del producto" name="image" onChange={(e) => setFile(e.target.files[0])} />                   
+                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 file:font-mono file:mr-6" type="file" placeholder="Ingrese imagen del producto" name="image" onChange={(e) => setFile(e.target.files[0])} />  
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Precio </label>
@@ -84,12 +84,11 @@ const EditForm = ({item}) => {
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Tipo </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Slug del producto" value={values.type} name="type" onChange={handleChange} required />
-                </div>               
-                        
-                {volver 
-                ?  <IrAtras className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mb-6"> Volver </IrAtras>
-                :  <Boton type="submit" className="flex items-center justify-between font-mono text-lg"> Aceptar </Boton> }               
+                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Slug del producto" value={values.type} name="type" onChange={handleChange} required />                  
+                </div>
+                {volver
+                ? <IrAtras className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mb-6"> Volver </IrAtras>
+                :<Boton type="submit" className="flex items-center justify-between font-mono text-lg"> Aceptar </Boton>}
 
             </form>
         </main>

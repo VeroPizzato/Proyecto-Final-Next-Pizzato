@@ -10,7 +10,7 @@ const DeletePage = async ({params}) => {
 
     return (
         <div>
-            <DeleteForm  item={item} />
+            <DeleteForm item={item} />
         </div>
     )
 }
