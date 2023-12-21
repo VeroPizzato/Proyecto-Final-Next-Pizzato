@@ -2,7 +2,7 @@
 import { createContext, useContext, useState, useEffect } from "react"
 import { auth, db, provider } from "@/firebase/config"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup } from "firebase/auth"
-import { doc, setDoc, getDoc} from "firebase/firestore"
+import { doc, setDoc, getDoc } from "firebase/firestore"
 import { useRouter } from "next/navigation"
 
 export const AuthContext = createContext()
@@ -19,12 +19,14 @@ export const AuthProvider = ({ children }) => {
         uid: null
     })
 
-    const agregarRol = async(email)=>{
-        const docRef = doc(db, "roles", email)       
-        return setDoc(docRef, {
-            rol: "no_admin",   
-            email: email              
-        }).then(() => console.log("Rol creado exitosamente"))
+    const agregarRol = async (email) => {
+        if (email != "verizzato@gmail.com") {
+            const docRef = doc(db, "roles", email)
+            return setDoc(docRef, {
+                rol: "no_admin",
+                email: email
+            }).then(() => console.log("Rol creado exitosamente"))
+        }
     }
 
     const registerUser = async (values) => {
@@ -37,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const logout = async () => {
-        await signOut(auth)        
+        await signOut(auth)
     }
 
     const googleLogin = async () => {
@@ -71,7 +73,7 @@ export const AuthProvider = ({ children }) => {
             }
         })
     }, [])
-  
+
     return (
         <AuthContext.Provider value={{
             user,
