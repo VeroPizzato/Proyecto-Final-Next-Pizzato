@@ -1,4 +1,3 @@
-
 import IrAtras from "@/components/ui/IrAtras"
 
 export default function NotFound() {   
