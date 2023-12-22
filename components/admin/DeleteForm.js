@@ -15,8 +15,8 @@ const DeleteForm = ({ item }) => {
     const { title, slug } = item
 
     const [volver, setVolver] = useState(false)
+    const [cargando, setCargando] = useState(false)
    
-
     return (
         <main className="container m-auto w-1/2">
             <div className="bg-gray-100 px-8 pt-6 pb-8 mb-4 rounded-xl shadow-lg mt-6">
