@@ -1,4 +1,5 @@
 import CartList from "@/components/cart/CartList"
+import ClientForm from "@/components/cart/ClientForm"
 
 const Cart = () => {   
 
@@ -10,9 +11,9 @@ const Cart = () => {
                 </div>
             </div>
 
-            <CartList/>  
-            <ClientForm />
-            
+            <CartList/> 
+            <ClientForm/>
+                       
         </div>
     )  
 }

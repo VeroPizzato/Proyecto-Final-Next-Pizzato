@@ -30,7 +30,7 @@ const CartList = () => {
                 <table className="min-w-full bg-gray-100 border border-gray-300">
                     <tbody>
                         <tr>
-                            <td className="align-middle text-end" colSpan={5} ><Boton className="mt-4 mr-6" onClick={() => { clear() }} title="Vaciar Carrito">Vaciar Carrito</Boton></td>
+                            <td className="align-middle text-end" colSpan={5} ><Boton className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mr-6" onClick={() => { clear() }} title="Vaciar Carrito">Vaciar Carrito</Boton></td>
                         </tr>
                         {
                             cart.map(item => (
@@ -39,10 +39,7 @@ const CartList = () => {
                         }
                         <tr>
                             <td colSpan={5} className="align-middle text-end"><h4 className="font-mono text-lg mr-6">Total de la compra: $ {totalMonto().toLocaleString()}</h4></td>
-                        </tr>
-                        <tr>
-                            <td className="align-middle text-end" colSpan={5}><Boton className="mt-6 mb-4 mr-6"> Finalizar Compra </Boton></td>
-                        </tr>
+                        </tr>                        
                     </tbody>
                 </table>
             </div>

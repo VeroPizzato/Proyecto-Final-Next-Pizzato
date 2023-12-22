@@ -87,7 +87,7 @@ const EditForm = ({item}) => {
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Tipo </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Slug del producto" value={values.type} name="type" onChange={handleChange} required />                  
+                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Tipo del producto" value={values.type} name="type" onChange={handleChange} required />                  
                 </div>
                 
                 <div className="flex items-center justify-center font-mono text-lg">
