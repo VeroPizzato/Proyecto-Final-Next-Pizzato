@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
         })
         .catch(() =>{
             Swal.fire({
-                title: 'El usuario ya existe',                           
+                title: 'Error en la registracion',                           
                 icon: 'warning',  
                 confirmButtonColor: '#a52a2a',                               
                 confirmButtonText: 'Aceptar',             
