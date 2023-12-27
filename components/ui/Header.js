@@ -4,6 +4,7 @@ import logo from "@/public/logo.png"
 import Link from 'next/link'
 import CartWidget from './CartWidget'
 import { usePathname } from "next/navigation"
+import UserLogin from "./UserLogin"
 
 const links = [
     {
@@ -52,7 +53,10 @@ const Header = () => {
                             </Link>
                         })                        
                     }
-                    <CartWidget />                    
+
+                    <UserLogin />
+
+                    <CartWidget />
                     
                 </nav>
             </div>

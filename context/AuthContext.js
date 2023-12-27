@@ -4,6 +4,7 @@ import { auth, db, provider } from "@/firebase/config"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup } from "firebase/auth"
 import { doc, setDoc, getDoc } from "firebase/firestore"
 import { useRouter } from "next/navigation"
+import Swal from "sweetalert2"
 
 export const AuthContext = createContext()
 
@@ -20,22 +21,47 @@ export const AuthProvider = ({ children }) => {
     })
 
     const agregarRol = async (email) => {
-        if (email != "verizzato@gmail.com") {
+        if (email != "admin@coder.com") {
             const docRef = doc(db, "roles", email)
             return setDoc(docRef, {
                 rol: "no_admin",
                 email: email
-            }).then(() => console.log("Rol creado exitosamente"))
+            }).then(() => console.log("Rol no admin creado exitosamente"))
+        }
+        else{
+            const docRef = doc(db, "roles", email)
+            return setDoc(docRef, {
+                rol: "admin",
+                email: email
+            }).then(() => console.log("Rol admin creado exitosamente"))
         }
     }
 
     const registerUser = async (values) => {
         await createUserWithEmailAndPassword(auth, values.email, values.password)
-        agregarRol(values.email)
+        .then(()=>{
+            agregarRol(values.email)
+        })
+        .catch(() =>{
+            Swal.fire({
+                title: 'El usuario ya existe',                           
+                icon: 'warning',  
+                confirmButtonColor: '#a52a2a',                               
+                confirmButtonText: 'Aceptar',             
+            }) 
+        })        
     }
 
     const loginUser = async (values) => {
         await signInWithEmailAndPassword(auth, values.email, values.password)
+        .catch(() =>{
+            Swal.fire({
+                title: 'Usuario inexistente o contraseña incorrecta',                           
+                icon: 'warning',  
+                confirmButtonColor: '#a52a2a',                               
+                confirmButtonText: 'Aceptar',             
+            }) 
+        })     
     }
 
     const logout = async () => {

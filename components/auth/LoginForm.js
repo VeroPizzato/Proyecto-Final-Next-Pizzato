@@ -2,6 +2,7 @@
 import { useState } from "react"
 import Boton from "../ui/Boton"
 import { useAuthContext } from "@/context/AuthContext"
+import Link from "next/link"
 
 const LoginForm = () => {
 
@@ -34,8 +35,9 @@ const LoginForm = () => {
                     <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="password" placeholder="Tu password" value={values.password} name="password" onChange={handleChange} required />
                 </div>
                 <Boton onClick={() => loginUser(values)} className="mr-4">Ingresar</Boton>
-                <Boton onClick={() => registerUser(values)}>Registrarme</Boton>
-                <Boton onClick={googleLogin} className="mt-2 block">Ingresar con Google</Boton>
+                <Boton onClick={() => registerUser(values)} className="mr-4">Registrarme</Boton>
+                <Boton onClick={googleLogin} className="mr-4">Ingresar con Google</Boton>
+                <Link href={"/"}><Boton> Volver </Boton></Link>
             </form>
         </div>
     )
