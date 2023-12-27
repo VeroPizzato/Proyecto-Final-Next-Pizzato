@@ -36,4 +36,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## Acceso al Panel de Administracion
-    Para acceder al CRUD el usuario del administrador es admin@coder.com y la contraseña es 123456
+    Para acceder al CRUD el usuario con permisos de administrador es admin@coder.com y la contraseña es 123456
