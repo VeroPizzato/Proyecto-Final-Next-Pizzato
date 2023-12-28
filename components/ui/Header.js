@@ -42,7 +42,7 @@ const Header = () => {
                     />
                 </Link>
 
-                <nav className="flex justify-between gap-2 bg-red">
+                <nav className="flex justify-center gap-2 bg-red">
                     {
                         links.map(link => {
                             return <Link

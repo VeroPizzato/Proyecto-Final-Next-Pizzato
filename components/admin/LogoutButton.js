@@ -10,7 +10,7 @@ const LogoutButton = () => {
         <div> {
             user.logged
                 ?
-                <Boton className="ml-30" onClick={logout}>Cerrar sesión</Boton>
+                <Boton className="font-mono text-lg text-red-900 hover:font-boldgit ml-15" onClick={logout}>Cerrar sesión</Boton>               
                 :
                 <></>
         }
