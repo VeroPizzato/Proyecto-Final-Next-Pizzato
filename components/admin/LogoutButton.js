@@ -4,10 +4,18 @@ import Boton from "../ui/Boton"
 
 const LogoutButton = () => {
 
-    const { logout } = useAuthContext()
+    const { user, logout } = useAuthContext()
 
-    return <Boton onClick={logout}>Cerrar sesión</Boton>
-   
+    return (
+        <div> {
+            user.logged
+                ?
+                <Boton className="ml-30" onClick={logout}>Cerrar sesión</Boton>
+                :
+                <></>
+        }
+        </div>
+    )
 }
 
 export default LogoutButton

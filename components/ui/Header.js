@@ -5,6 +5,7 @@ import Link from 'next/link'
 import CartWidget from './CartWidget'
 import { usePathname } from "next/navigation"
 import UserLogin from "./UserLogin"
+import LogoutButton from "../admin/LogoutButton"
 
 const links = [
     {
@@ -54,9 +55,12 @@ const Header = () => {
                         })                        
                     }
 
-                    <UserLogin />
 
+                <div className="flex flex-row align-middle items-center text-center">
+                    <UserLogin />                    
                     <CartWidget />
+                    <LogoutButton />
+                </div>                 
                     
                 </nav>
             </div>
