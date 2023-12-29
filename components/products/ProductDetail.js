@@ -4,7 +4,7 @@ import NotFound from "@/app/not-found"
 import Counter from "../ui/Counter"
 
 const ProductDetail = async ({ slug }) => {
-    const item = await fetch(`http://${process.env.VERCEL_URL}/api/producto/${slug}`,
+    const item = await fetch(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/producto/${slug}`,
         { cache: "no-store" }
     ).then(res => res.json())
     .catch(error => {
