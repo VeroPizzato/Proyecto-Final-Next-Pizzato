@@ -9,6 +9,9 @@ const ProductsTable = async () => {
     const items = await fetch(`http://localhost:3000/api/productos/all`, {
         cache: 'no-store',
     }).then(r => r.json())
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
 
     return (
         <>
@@ -34,7 +37,7 @@ const ProductsTable = async () => {
                     <tbody>
                         {
                             items.map((item) => (
-                                <tr>
+                                <tr key={item.slug}>
                                     <td className="font-mono p-2 text-justify">{item.title}</td>
                                     <td className="font-mono p-2">{item.price}</td>
                                     <td className="font-mono p-2">{item.stock}</td>
