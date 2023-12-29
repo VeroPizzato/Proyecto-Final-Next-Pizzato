@@ -6,7 +6,7 @@ import Editar from "@/public/icons/editar.png"
 
 const ProductsTable = async () => {
 
-    const items = await fetch(`http://localhost:3000/api/productos/all`, {
+    const items = await fetch(`http://${process.env.VERCEL_URL}/api/productos/all`, {
         cache: 'no-store',
     }).then(r => r.json())
     .catch(error => {
