@@ -2,7 +2,7 @@
 import { createContext, useContext, useState, useEffect } from "react"
 import { auth, db, provider } from "@/firebase/config"
 import { updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup } from "firebase/auth"
-import { doc, setDoc, getDoc } from "firebase/firestore"
+import { doc, setDoc } from "firebase/firestore"
 import { useRouter } from "next/navigation"
 import Swal from "sweetalert2"
 

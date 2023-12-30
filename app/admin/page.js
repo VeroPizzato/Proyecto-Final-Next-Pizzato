@@ -1,4 +1,3 @@
-import LogoutButton from "@/components/admin/LogoutButton"
 import ProductsTable  from "@/components/admin/ProductsTable"
 
 const Admin = () => {

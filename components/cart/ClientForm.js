@@ -1,5 +1,5 @@
 "use client"
-import { setDoc, getDoc, doc, Timestamp, writeBatch } from "firebase/firestore"
+import { setDoc, doc, Timestamp } from "firebase/firestore"
 import { db } from "@/firebase/config"
 import Link from "next/link"
 import Boton from "../ui/Boton"
@@ -9,27 +9,7 @@ import { useAuthContext } from "@/context/AuthContext"
 
 
 const createOrder = async (values, items, montoTotal) => {
-    // const docsPromises = items.map((slug) => {
-    //     const docRef = doc(db, "productos", slug) 
-    //     return getDoc(docRef)
-    // })
-
-    // const docs = await Promise.all(docsPromises)
-    // const batch = writeBatch(db)
-    // const outOfStock = []
-    
-    // docs.forEach(doc => {
-    //     const {stock} = doc.data()
-    //     const itemInCart = items.find(item => item.slug === doc.slug)
-    //     if (itemInCart.quantity >= stock){
-    //         batch.update(doc.ref, { stock: stock - itemInCart.quantity })
-    //     } else {
-    //         outOfStock.push(itemInCart)
-    //     }
-    // })
-
-    // if (outOfStock.length > 0) return outOfStock
-
+   
     const order = {
         cliente: values,
         items: items.map(item => ({
@@ -44,7 +24,6 @@ const createOrder = async (values, items, montoTotal) => {
 
     const docId = Timestamp.fromDate(new Date()).toMillis()
     const orderRef = doc(db, "orders", String(docId))
-    // await batch.commit()
     await setDoc(orderRef, order)
 
     return docId

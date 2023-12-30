@@ -1,5 +1,4 @@
 import Boton from "@/components/ui/Boton"
-import IrAtras from "@/components/ui/IrAtras"
 import Link from "next/link"
 
 export default function Unauthorized() {
