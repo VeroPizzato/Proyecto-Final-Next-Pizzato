@@ -43,7 +43,7 @@ const Counter = ({ producto }) => {
         <div className="font-mono text-lg flex flex-col items-center justify-center gap-5 mt-6">
             <h1 className="font-mono text-2xl mt-6 mb-6">Stok Disponible: {stockDisponible}</h1>
             <div className="flex items-center justify-center gap-3 mx-auto">
-                <Boton ick={decrease}>-</Boton>
+                <Boton onClick={decrease}>-</Boton>
                 <p className="font-bold">{cantidad}</p>
                 <Boton onClick={increase}>+</Boton>
             </div>

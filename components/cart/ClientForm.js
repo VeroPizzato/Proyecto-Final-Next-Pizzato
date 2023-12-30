@@ -1,13 +1,34 @@
 "use client"
-import { setDoc, doc, Timestamp } from "firebase/firestore"
+import { setDoc, getDoc, doc, Timestamp, writeBatch } from "firebase/firestore"
 import { db } from "@/firebase/config"
 import Link from "next/link"
 import Boton from "../ui/Boton"
 import { useState } from "react"
 import { useCartContext } from "@/context/CartContext"
+import { useAuthContext } from "@/context/AuthContext"
 
 
 const createOrder = async (values, items, montoTotal) => {
+    // const docsPromises = items.map((slug) => {
+    //     const docRef = doc(db, "productos", slug) 
+    //     return getDoc(docRef)
+    // })
+
+    // const docs = await Promise.all(docsPromises)
+    // const batch = writeBatch(db)
+    // const outOfStock = []
+    
+    // docs.forEach(doc => {
+    //     const {stock} = doc.data()
+    //     const itemInCart = items.find(item => item.slug === doc.slug)
+    //     if (itemInCart.quantity >= stock){
+    //         batch.update(doc.ref, { stock: stock - itemInCart.quantity })
+    //     } else {
+    //         outOfStock.push(itemInCart)
+    //     }
+    // })
+
+    // if (outOfStock.length > 0) return outOfStock
 
     const order = {
         cliente: values,
@@ -23,6 +44,7 @@ const createOrder = async (values, items, montoTotal) => {
 
     const docId = Timestamp.fromDate(new Date()).toMillis()
     const orderRef = doc(db, "orders", String(docId))
+    // await batch.commit()
     await setDoc(orderRef, order)
 
     return docId
@@ -32,11 +54,13 @@ const ClientForm = () => {
 
     const [orderId, setOrderId] = useState()
 
+    const {user} = useAuthContext()
+
     const { cart, totalItems, totalMonto, clear} = useCartContext()
 
     const [values, setValues] = useState({
-        nombre: '',
-        email: '',
+        nombre: user.nombre,
+        email: user.email,
         direccion: ''
     })
 
@@ -72,7 +96,7 @@ const ClientForm = () => {
                 finalizarCompra
                     ?
                     <div className="flex flex-col items-center justify-center font-mono text-lg">
-                        <h2 className="text-2xl border-b border-gray-200 pb-4 mb-4 pt-12 font-bold text-center">{`Orden de compra ${orderId} generada exitosamente!!`}</h2>
+                        <h2 className="text-2xl border-b border-gray-200 pb-4 mb-4 pt-12 font-bold text-center">{`Orden de compra ${orderId} generada exitosamente!!`}</h2> 
                         <Link href="/productos/all"><Boton className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4" onClick={() => { clear() }}>Volver a la Tienda</Boton></Link>
                     </div>
                     :

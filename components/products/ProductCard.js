@@ -20,6 +20,11 @@ const ProductCard = ({ item }) => {
                     <h4 className="font-mono text-sm my-4">{item.title}</h4>
                     <p className="font-mono text-2xl font-semibold mb-6">$ {item.price}</p>
                 </div>
+                                
+                {
+                    item.stock === 0 && <p className="font-semibold text-red-900"> No hay stock de este producto</p>
+                }
+
             </Link>
         </article>
     )
