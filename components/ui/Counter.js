@@ -28,7 +28,7 @@ const Counter = ({ producto }) => {
 
     useEffect(() => {
         actualizarStock(producto.slug);
-    }, []);
+    }, [actualizarStock, producto.slug]);
    
     const increase = () => cantidad < stockDisponible && setCantidad(cantidad + 1)
     const decrease = () => cantidad > 1 && setCantidad(cantidad - 1)
