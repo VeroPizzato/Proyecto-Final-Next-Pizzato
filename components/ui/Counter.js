@@ -1,6 +1,6 @@
 "use client"
 import Boton from "./Boton"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useCartContext } from "@/context/CartContext";
 import Link from "next/link";
 
