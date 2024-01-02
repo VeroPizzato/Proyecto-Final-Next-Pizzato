@@ -66,7 +66,7 @@ const EditForm = ({item}) => {
             <form onSubmit={handleSubmit} className="bg-gray-100 px-8 pt-6 pb-8 mb-4 rounded-xl shadow-lg">                
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Nombre </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" pattern="[A-Za-z]+" title="Solo se permiten letras" placeholder="Ingrese nombre del producto" value={values.title} name="title" onChange={handleChange} required />
+                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Ingrese nombre del producto" value={values.title} name="title" onChange={handleChange} required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Descripción </label>
