@@ -94,7 +94,7 @@ const ClientForm = () => {
                                 <h2 className="font-mono text-xl text-red-900 mb-5">Complete sus datos</h2>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Nombre: </label>
-                                    <input type="nombre" name="nombre" onChange={handleChange} required placeholder="Tu nombre"
+                                    <input type="nombre" pattern="[A-Za-z]+" title="Solo se permiten letras" name="nombre" onChange={handleChange} required placeholder="Tu nombre"
                                         className="w-full shadow border border-red-900 rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
                                 <div className="mb-4">
@@ -103,7 +103,7 @@ const ClientForm = () => {
                                         className="w-full shadow border border-red-900  rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
                                 <div className="mb-4">
-                                    <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Direccion: </label>
+                                    <label className="block text-gray-700 text-lg font-bold mb-2 font-mono" pattern="[A-Za-z0-9]+" title="Solo se permiten letras y números">Direccion: </label>
                                     <input type="direccion" name="direccion" onChange={handleChange} required placeholder="Tu dirección"
                                         className="w-full shadow border border-red-900  rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
