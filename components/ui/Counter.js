@@ -19,7 +19,7 @@ const Counter = ({ producto }) => {
         setTextoBoton('Terminar compra');
     };
 
-    const actualizarStock = useCallback(() => {
+    const actualizarStock = useCallback((itemSlug) => {
         const producto = getItem(itemSlug);
         if (producto) {
             setStockDisponible(stockDisponible - producto.quantity);
@@ -27,7 +27,7 @@ const Counter = ({ producto }) => {
     }, [stockDisponible]);
 
     useEffect(() => {
-        actualizarStock();
+        actualizarStock(producto.slug);
     }, [actualizarStock]);
 
     const increase = () => cantidad < stockDisponible && setCantidad(cantidad + 1)
