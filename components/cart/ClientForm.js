@@ -38,8 +38,8 @@ const ClientForm = () => {
     const { cart, totalItems, totalMonto, clear} = useCartContext()
 
     const [values, setValues] = useState({
-        nombre: user.nombre,
-        email: user.email,
+        nombre: '',
+        email: '',
         direccion: ''
     })
 
@@ -94,12 +94,12 @@ const ClientForm = () => {
                                 <h2 className="font-mono text-xl text-red-900 mb-5">Complete sus datos</h2>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Nombre: </label>
-                                    <input type="nombre" pattern="[A-Za-z]+" title="Solo se permiten letras" name="nombre" onChange={handleChange} required placeholder="Tu nombre"
+                                    <input type="nombre" value={user.nombre} pattern="[A-Za-z]+" title="Solo se permiten letras" name="nombre" onChange={handleChange} required placeholder="Tu nombre"
                                         className="w-full shadow border border-red-900 rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Email: </label>
-                                    <input type="email" name="email" onChange={handleChange} required placeholder="Tu email"
+                                    <input type="email" name="email" value={user.email} onChange={handleChange} required placeholder="Tu email"
                                         className="w-full shadow border border-red-900  rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
                                 <div className="mb-4">
