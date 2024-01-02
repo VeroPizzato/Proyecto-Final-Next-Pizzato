@@ -19,12 +19,12 @@ const Counter = ({ producto }) => {
         setTextoBoton('Terminar compra');
     };
 
-    const actualizarStock = useCallback((itemSlug) => {
+    function actualizarStock(itemSlug) {
         const producto = getItem(itemSlug);
         if (producto) {
             setStockDisponible(stockDisponible - producto.quantity);
         }
-    }, []);
+    }
 
     useEffect(() => {
         actualizarStock(producto.slug);
