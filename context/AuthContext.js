@@ -43,7 +43,9 @@ export const AuthProvider = ({ children }) => {
     const registerUser = async (values) => {
         await createUserWithEmailAndPassword(auth, values.email, values.password)
             .then((credencialUsuario) => {
-                agregarRol(values.nombre, values.email)
+                // console.log(values.nombre)
+                // console.log(values.email)
+                agregarRol(values.nombre, values.email)                
                 const user = credencialUsuario.user;
                 updateProfile(user, {
                     displayName: values.nombre
@@ -79,7 +81,7 @@ export const AuthProvider = ({ children }) => {
     const googleLogin = async () => {
         await signInWithPopup(auth, provider)
             .then(() => {
-                agregarRol(auth.currentUser.email)
+                agregarRol(auth.currentUser.nombre, auth.currentUser.email)
             })
     }
 
@@ -95,6 +97,7 @@ export const AuthProvider = ({ children }) => {
             } else {
                 setUser({
                     logged: false,
+                    nombre: null,
                     email: null,
                     uid: null
                 })

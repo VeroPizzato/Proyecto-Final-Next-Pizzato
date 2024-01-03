@@ -94,18 +94,18 @@ const ClientForm = () => {
                                 <h2 className="font-mono text-xl text-red-900 mb-5">Complete sus datos</h2>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Nombre: </label>
-                                    <input type="nombre" value={user.nombre} name="nombre" onChange={handleChange} required placeholder="Tu nombre"
+                                    <input type="nombre" name="nombre" value={user.nombre} onChange={handleChange} required placeholder="Tu nombre"
                                         className="w-full shadow border border-red-900 rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Email: </label>
                                     <input type="email" name="email" value={user.email} onChange={handleChange} required placeholder="Tu email"
-                                        className="w-full shadow border border-red-900  rounded py-2 px-3 text-gray-700 font-mono" />
+                                        className="w-full shadow border border-red-900 rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Direccion: </label>
                                     <input type="direccion" name="direccion" onChange={handleChange} required placeholder="Tu dirección"
-                                        className="w-full shadow border border-red-900  rounded py-2 px-3 text-gray-700 font-mono" />
+                                        className="w-full shadow border border-red-900 rounded py-2 px-3 text-gray-700 font-mono" />
                                 </div>
                                 <div className="flex flex-col items-center justify-center ">
                                     <Boton type="submit" className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4">Finalizar Compra</Boton>

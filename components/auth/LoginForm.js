@@ -17,7 +17,7 @@ const LoginForm = () => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
-        })
+        })        
     }
 
     const [isValidName, setIsValidName] = useState(true);
@@ -28,12 +28,16 @@ const LoginForm = () => {
         setIsValidName(isValid);
     };
 
+    useEffect(() => {
+        validarNombre();
+    }, [values.nombre]);
+
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        
         validarNombre();
-
-        // Verifica si el evento proviene del botón "Registrarme"
+                
+        // Verifico si el evento proviene del botón "Registrarme"
         if (e.nativeEvent.submitter && e.nativeEvent.submitter.name === "registrarmeButton" && isValidName) {
             registerUser(values);
         }
@@ -48,7 +52,7 @@ const LoginForm = () => {
             <form onSubmit={handleSubmit} className="bg-gray-100 px-8 pt-6 pb-8 mb-4 rounded-xl shadow-lg w-1/2">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Nombre </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" pattern="[A-Za-z ]+" title="Solo se permiten letras y espacios" placeholder="Tu nombre" value={values.nombre} name="nombre" onChange={handleChange} required />
+                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Tu nombre" value={values.nombre} name="nombre" onChange={handleChange} pattern="[A-Za-z ]+" title="Solo se permiten letras y espacios" required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Email </label>
