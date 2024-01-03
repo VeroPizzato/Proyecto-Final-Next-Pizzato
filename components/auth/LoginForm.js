@@ -26,11 +26,7 @@ const LoginForm = () => {
         // Validar el nombre
         const isValid = /^[a-zA-Z ]+$/.test(values.nombre);
         setIsValidName(isValid);
-    };
-
-    useEffect(() => {
-        validarNombre();
-    }, [values.nombre]);
+    };    
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -41,11 +37,7 @@ const LoginForm = () => {
         if (e.nativeEvent.submitter && e.nativeEvent.submitter.name === "registrarmeButton" && isValidName) {
             registerUser(values);
         }
-    }
-
-    useEffect(() => {
-        console.log("isValidName actualizado:", isValidName);
-    }, [isValidName]);
+    }  
 
     return (
         <div className="fixed w-screen h-screen inset-0 z-10 flex justify-center items-center bg-blue-400 bg-opacity-25">
