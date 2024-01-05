@@ -11,7 +11,7 @@ import ValidarEmail from "../ui/ValidarEmail"
 
 
 const createOrder = async (values, items, montoTotal) => {
-   
+
     const order = {
         cliente: values,
         items: items.map(item => ({
@@ -35,9 +35,9 @@ const ClientForm = () => {
 
     const [orderId, setOrderId] = useState()
 
-    const {user} = useAuthContext()
+    const { user } = useAuthContext()
 
-    const { cart, totalItems, totalMonto, clear} = useCartContext()
+    const { cart, totalItems, totalMonto, clear } = useCartContext()
 
     const [values, setValues] = useState({
         nombre: '',
@@ -66,7 +66,7 @@ const ClientForm = () => {
         e.preventDefault()
         setCargando(true)
         const nroOrdenCompra = await createOrder(values, cart, totalMonto().toLocaleString())
-        setOrderId(nroOrdenCompra)        
+        setOrderId(nroOrdenCompra)
         setFinalizarCompra(true)
         setCargando(false)
     }
@@ -77,7 +77,7 @@ const ClientForm = () => {
                 finalizarCompra
                     ?
                     <div className="flex flex-col items-center justify-center font-mono text-lg">
-                        <h2 className="text-2xl border-b border-gray-200 pb-4 mb-4 pt-12 font-bold text-center">{`Orden de compra ${orderId} generada exitosamente!!`}</h2> 
+                        <h2 className="text-2xl border-b border-gray-200 pb-4 mb-4 pt-12 font-bold text-center">{`Orden de compra ${orderId} generada exitosamente!!`}</h2>
                         <Link href="/productos/all"><Boton className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4" onClick={() => { clear() }}>Volver a la Tienda</Boton></Link>
                     </div>
                     :
@@ -112,7 +112,7 @@ const ClientForm = () => {
                         }
                     </div>
             }
-        </div>
+        </div >
 
     )
 }
