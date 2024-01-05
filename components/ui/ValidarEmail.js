@@ -21,7 +21,7 @@ const ValidarEmail = ({ children, className, ...args }) => {
             <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">
                 {children}
             </label>
-            <input type="email" onKeyDown={(e) => validarEntradaEmail(e.target.value)} pattern="[^\s@]+@[^\s@]+\.[^\s@]" title="Por favor, ingrese una dirección de correo electrónico válida" required placeholder="Tu email" className={`w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono ${className} ${datoValido}`}
+            <input type="email" onKeyDown={(e) => validarEntradaEmail(e.target.value)} required placeholder="Tu email" className={`w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono ${className} ${datoValido}`}
                 {...args} />
         </div>
     )
