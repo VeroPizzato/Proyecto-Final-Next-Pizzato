@@ -6,7 +6,7 @@ const ValidarEmail = ({ children, className, ...args }) => {
 
     const [datoValido, setDatoValido] = useState("")
 
-    //función para validar un email
+    // valido el email
     function validarEntradaEmail(email) {
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             setDatoValido("shadow-[0_0_5px_1px_red]")
