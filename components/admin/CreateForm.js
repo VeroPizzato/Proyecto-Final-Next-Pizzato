@@ -58,32 +58,32 @@ const CreateForm = () => {
             <form onSubmit={handleSubmit} className="bg-gray-100 px-8 pt-6 pb-8 mb-4 rounded-xl shadow-lg">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Slug </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Slug del producto" value={values.slug} name="slug" onChange={handleChange} required />
+                    <input className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Slug del producto" value={values.slug} name="slug" onChange={handleChange} required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Nombre </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Ingrese nombre del producto" value={values.title} name="title" onChange={handleChange} required />
+                    <input className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Ingrese nombre del producto" value={values.title} name="title" onChange={handleChange} required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Descripción </label>
-                    <textarea className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" rows="5" type="description" placeholder="Descripcion del producto" value={values.description} name="description" onChange={handleChange} required> </textarea>
+                    <textarea className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono" rows="5" type="description" placeholder="Descripcion del producto" value={values.description} name="description" onChange={handleChange} required> </textarea>
                 </div>
 
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Imagen </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 file:font-mono file:mr-6" type="file" placeholder="Ingrese imagen del producto" name="image" onChange={(e) => setFile(e.target.files[0])} required />
+                    <input className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 file:font-mono file:mr-6" type="file" placeholder="Ingrese imagen del producto" name="image" onChange={(e) => setFile(e.target.files[0])} required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono" type="number" > Precio </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="number" placeholder="Precio del producto" value={values.price} name="price" onChange={handleChange} required />
+                    <input className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono" type="number" placeholder="Precio del producto" value={values.price} name="price" onChange={handleChange} required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono" type="number" > Stock disponible </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="number" placeholder="Stock disponible del producto" value={values.stock} name="stock" onChange={handleChange} required />
+                    <input className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono" type="number" placeholder="Stock disponible del producto" value={values.stock} name="stock" onChange={handleChange} required />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono"> Tipo </label>
-                    <input className="w-full shadow border border-blue-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Tipo del producto" value={values.type} name="type" onChange={handleChange} required />
+                    <input className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono" type="text" placeholder="Tipo del producto" value={values.type} name="type" onChange={handleChange} required />
                 </div>
 
                 <div className="flex items-center justify-center font-mono text-lg">

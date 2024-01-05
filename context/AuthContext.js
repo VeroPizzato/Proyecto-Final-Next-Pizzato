@@ -49,7 +49,14 @@ export const AuthProvider = ({ children }) => {
                 const user = credencialUsuario.user;
                 updateProfile(user, {
                     displayName: values.nombre
-                });                
+                }); 
+                // para refrescar el nombre del usuario registrado
+                setUser({
+                    logged: true,
+                    nombre: values.nombre,
+                    email: values.email,
+                    uid: values.uid     
+                })          
             })
             .catch(() => {
                 Swal.fire({
