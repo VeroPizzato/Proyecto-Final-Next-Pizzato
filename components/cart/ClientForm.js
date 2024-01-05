@@ -1,5 +1,5 @@
 "use client"
-import { setDoc, doc, Timestamp } from "firebase/firestore"
+import { setDoc, updateDoc, doc, Timestamp } from "firebase/firestore"
 import { db } from "@/firebase/config"
 import Link from "next/link"
 import Boton from "../ui/Boton"
@@ -78,6 +78,14 @@ const ClientForm = () => {
                     ?
                     <div className="flex flex-col items-center justify-center font-mono text-lg">
                         <h2 className="text-2xl border-b border-gray-200 pb-4 mb-4 pt-12 font-bold text-center">{`Orden de compra ${orderId} generada exitosamente!!`}</h2>
+                        {
+                            cart.map(item => {
+                                const docRef = doc(db, "productos", item.slug)
+                                updateDoc(docRef, {
+                                    stock: item.stock - item.quantity
+                                })
+                            })
+                        }
                         <Link href="/productos/all"><Boton className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4" onClick={() => { clear() }}>Volver a la Tienda</Boton></Link>
                     </div>
                     :

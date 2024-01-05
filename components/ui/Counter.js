@@ -2,8 +2,6 @@
 import Boton from "./Boton"
 import { useState, useEffect } from "react";
 import { useCartContext } from "@/context/CartContext";
-import { doc,  updateDoc } from "firebase/firestore";
-import { db } from "@/firebase/config"
 import Link from "next/link";
 
 const Counter = ({ producto }) => {
@@ -14,21 +12,17 @@ const Counter = ({ producto }) => {
     const [stockDisponible, setStockDisponible] = useState(producto.stock);
     const [textoBoton, setTextoBoton] = useState('Agregar al carrito');
 
-    const onAdd = async (quantity) => {
+    const onAdd = (quantity) => {
         addItem(producto, quantity);
         setCantidad(quantity);
-        setStockDisponible(stockDisponible - quantity);        
-        const docRef = doc(db, "productos", producto.slug) 
-        await updateDoc(docRef, { stock: stockDisponible })
+        setStockDisponible(stockDisponible - quantity);             
         setTextoBoton('Terminar compra');
     };
 
-    const actualizarStock = async (itemSlug) => {              
+    const actualizarStock = (itemSlug) => {              
         const producto = getItem(itemSlug);
         if (producto) {
-            setStockDisponible(stockDisponible - producto.quantity);            
-            const docRef = doc(db, "productos", producto.slug) 
-            await updateDoc(docRef, { stock: stockDisponible })
+            setStockDisponible(stockDisponible - producto.quantity);        
         }
     };
 
