@@ -8,7 +8,7 @@ import { useCartContext } from "@/context/CartContext"
 import { useAuthContext } from "@/context/AuthContext"
 import ValidarNombre from "../ui/ValidarNombre"
 import ValidarEmail from "../ui/ValidarEmail"
-
+import DetalleOrden from "./DetalleOrden"
 
 const createOrder = async (values, items, montoTotal) => {
 
@@ -86,7 +86,11 @@ const ClientForm = () => {
                                 })
                             })
                         }
-                        <Link href="/productos/all"><Boton className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4" onClick={() => { clear() }}>Volver a la Tienda</Boton></Link>
+                        <div className="flex flex-row items-center justify-center gap-3">
+                            {/* <DetalleOrden id={orderId} /> */}
+                            <Boton className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4" onClick={() => <DetalleOrden id={orderId} />}>Ver Detalle Orden</Boton>
+                            <Link href="/productos/all"><Boton className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4" onClick={() => { clear() }}>Volver a la Tienda</Boton></Link>
+                        </div>
                     </div>
                     :
                     <div className="container m-auto w-3/6">
