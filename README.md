@@ -37,3 +37,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Acceso al Panel de Administracion
     Para acceder al CRUD el usuario con permisos de administrador es admin@coder.com y la contraseña es 123456
+
+## Archivo .env.local
+    NEXT_PUBLIC_VERCEL_URL=proyecto-final-next-pizzato.vercel.app
