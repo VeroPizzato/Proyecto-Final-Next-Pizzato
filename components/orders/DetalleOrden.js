@@ -16,9 +16,9 @@ const formatFecha = (date) => {
     return fechaFormateada
 }
 
-export default async function DetalleOrden({id}) { 
+export default async function DetalleOrden({ id }) {
     const order = await getOrder(id)
-   
+
     return (
         <div className="mx-auto flex max-w-screen-lg flex-col gap-9 rounded-lg bg-white p-6">
             <div className="flex flex-col gap-3">

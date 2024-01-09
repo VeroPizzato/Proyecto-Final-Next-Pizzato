@@ -114,10 +114,10 @@ const ClientForm = () => {
                                     <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">Direccion: </label>
                                     <input type="direccion" name="direccion" onChange={handleChange} required placeholder="Tu dirección"
                                         className="w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono" />
-                                </div>
+                                </div>                               
                                 <div className="flex flex-col items-center justify-center ">
                                     <Boton type="submit" className="font-mono text-lg text-red-900 hover:font-boldgit inline-table mt-4 mb-4">Finalizar Compra</Boton>
-                                </div>
+                                </div>                               
                             </form>
                         }
                     </div>

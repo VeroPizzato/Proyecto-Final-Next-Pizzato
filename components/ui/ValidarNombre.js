@@ -20,7 +20,7 @@ const ValidarNombre = ({ children, className, ...args }) => {
             <label className="block text-gray-700 text-lg font-bold mb-2 font-mono">
                 {children}
             </label>
-            <input type="text" onKeyDown={(e) => validarEntradaNombre(e.target.value)}  pattern="[a-z A-Z]+" title="Solo se permiten letras y espacios" required className={`w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono ${className} ${datoValido}`}
+            <input type="text" onKeyDown={(e) => validarEntradaNombre(e.target.value)} onBlur={(e) => validarEntradaNombre(e.target.value)} pattern="[a-z A-Z]+" title="Solo se permiten letras y espacios" required className={`w-full shadow border border-gray-100 rounded py-2 px-3 text-gray-700 font-mono ${className} ${datoValido}`}
                 {...args} />
         </div>
     )
